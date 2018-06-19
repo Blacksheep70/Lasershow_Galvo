@@ -291,10 +291,15 @@ void drawFrame(uint16_t x[], uint16_t y[], uint8_t onOff[]){
 
     for(t = 0; t < sizeof(x); t++)
     {
-        if(onOff[t] == 1)
-            drawLineBresenham(x[t-1], x[t], y[t-1], y[t]);
-        else if(onOff[t] == 0)
+
+        if(onOff[t] == 0)
             SSI0SendData_xy(x[t], y[t]);
+        else if(onOff[t] == 1)
+            drawLineBresenham(x[t-1], x[t], y[t-1], y[t]);
+        else if(onOff[t] == 2){
+            drawCircleBresenham(x[t], y[t], x[t+1], y[t+1]);
+            t++;
+        }
     }
 }
 
