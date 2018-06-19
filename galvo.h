@@ -26,6 +26,7 @@ void Timer0IntHandler();
 void drawFrame(uint16_t x[], uint16_t y[], uint8_t onOff[]);
 void plotLine(uint16_t x_start, uint16_t x_end, uint16_t y_start, uint16_t y_end, uint32_t ui32SysClkFreq);
 void SSIIntHandler(void);
+uint16_t** switchArrays(uint16_t x1[], uint16_t y1[], uint8_t onOff1[]);
 //uint8_t drawLine (uint16_t x_start, uint16_t x_end, uint16_t y_start, uint16_t y_end,uint32_t ui32SysClkFreq);
 
 

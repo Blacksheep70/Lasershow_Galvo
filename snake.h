@@ -19,11 +19,11 @@ uint32_t calculateCycle(uint32_t GameStatus);
 uint32_t executeCollision(uint16_t ui16GameField[][], uint32_t GameStatus);
 void setupNunchuk(uint32_t ui32SysClkFreq);
 uint32_t checkNunchuk(uint32_t GameStatus);
-void calculateArray(uint16_t GameField[8][16], uint16_t x[], uint16_t y[], uint8_t onOff[]);
-uint8_t drawPlayer(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint8_t ui8PositionX, uint8_t ui8PositionY);
-uint8_t drawStone(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint8_t ui8PositionX, uint8_t ui8PositionY);
-uint8_t drawStar(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint8_t ui8PositionX, uint8_t ui8PositionY);
-uint8_t fillArray(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uin16_t ui16XValue, uin16_t ui16YValue, uin16_t ui16OnOffValue);
+uint8_t calculateArray(uint16_t GameField[8][16], uint16_t x[], uint16_t y[], uint8_t onOff[]);
+uint8_t drawPlayer(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY);
+uint8_t drawStone(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY);
+uint8_t drawStar(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY);
+uint8_t fillArray(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16XValue, uint16_t ui16YValue, uint16_t ui16OnOffValue);
 
 
 #endif /* SNAKE_H_ */

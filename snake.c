@@ -299,7 +299,7 @@ uint32_t readValuesNunchuk(uint32_t GameStatus){
     return GameStatus;
 }
 
-void calculateArray(uint16_t GameField[8][16], uint16_t x[], uint16_t y[], uint8_t onOff[]){
+uint8_t calculateArray(uint16_t GameField[8][16], uint16_t x[], uint16_t y[], uint8_t onOff[]){
     uint8_t ui8CounterX;
     uint8_t ui8CounterY;
     uint8_t ui8CounterPoints = 0;
@@ -319,6 +319,7 @@ void calculateArray(uint16_t GameField[8][16], uint16_t x[], uint16_t y[], uint8
             case 2  :   ui8CounterPoints = drawStone(ui8CounterPoints, x, y, onOff, ui8CounterX, ui8CounterY);
             case 3  :   ui8CounterPoints = drawStar(ui8CounterPoints, x, y, onOff, ui8CounterX, ui8CounterY);
             }
+    return ui8CounterPoints;
 }
 
 uint8_t drawPlayer(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY){
@@ -327,17 +328,17 @@ uint8_t drawPlayer(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t
     ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX-128, ui16PositionY-128, 0);
     ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX, ui16PositionY+128, 1);
     ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX+128, ui16PositionY-128, 1);
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16Cui8PositionXenterX-128, ui16PositionY-128, 1);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX-128, ui16PositionY-128, 1);
     return ui8CounterPoints;
 }
 uint8_t drawStone(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY){
     ui16PositionX = ui16PositionX*256+128;
     ui16PositionY = ui16PositionY*256+128;
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16CenterX-128, ui16CenterY-128, 0);
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16CenterX-128, ui16CenterY+128, 1);
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16CenterX+128, ui16CenterY+128, 1);
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16CenterX+128, ui16CenterY-128, 1);
-    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16CenterX-128, ui16CenterY-128, 1);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX-128, ui16PositionY-128, 0);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX-128, ui16PositionY+128, 1);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX+128, ui16PositionY+128, 1);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX+128, ui16PositionY-128, 1);
+    ui8CounterPoints = fillArray(ui8CounterPoints, x, y, onOff, ui16PositionX-128, ui16PositionY-128, 1);
     return ui8CounterPoints;
 }
 uint8_t drawStar(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16PositionX, uint16_t ui16PositionY){
@@ -350,7 +351,7 @@ uint8_t drawStar(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t o
     return ui8CounterPoints;
 }
 
-uint8_t fillArray(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uin16_t ui16XValue, uin16_t ui16YValue, uin16_t ui16OnOffValue){
+uint8_t fillArray(uint8_t ui8CounterPoints, uint16_t x[], uint16_t y[], uint8_t onOff[], uint16_t ui16XValue, uint16_t ui16YValue, uint16_t ui16OnOffValue){
     x[ui8CounterPoints] = ui16XValue;
     y[ui8CounterPoints] = ui16YValue;
     onOff[ui8CounterPoints] = ui16OnOffValue;

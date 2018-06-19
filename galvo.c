@@ -384,6 +384,17 @@ void SSIIntHandler(void){
     }
 }
 
+uint16_t** switchArrays(uint16_t x1[], uint16_t y1[], uint8_t onOff1[]){
+    uint16_t* ui16ReturnPointers[3];
+    ui16ReturnPointers[0] = x;
+    ui16ReturnPointers[1] = y;
+    ui16ReturnPointers[2] = onOff;
+    x = x1;
+    y = y1;
+    onOff = onOff1;
+    return ui16ReturnPointers;
+}
+
 //uint8_t drawLine (uint16_t x_start, uint16_t x_end, uint16_t y_start, uint16_t y_end, uint32_t ui32SysClkFreq)
 //{
 //    float_t x;
